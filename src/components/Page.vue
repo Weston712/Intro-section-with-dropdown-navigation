@@ -1,9 +1,10 @@
 <script>
 import HeaderVue from "./Header.vue";
-
+import MaincontentVue from "./Maincontent.vue";
 export default {
   components: {
     HeaderVue,
+    MaincontentVue,
   },
 };
 </script>
@@ -11,6 +12,7 @@ export default {
 <template>
   <div class="wrapper__container">
     <HeaderVue></HeaderVue>
+    <MaincontentVue></MaincontentVue>
   </div>
 </template>
 

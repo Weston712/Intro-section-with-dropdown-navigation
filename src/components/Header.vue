@@ -1,5 +1,9 @@
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+};
 </script>
 <template>
   <div class="wrapper__header">
@@ -79,10 +83,10 @@ export default {};
       </div>
     </section>
     <section class="container__company">
-      <menu>
-        <li></li>
-        <li></li>
-        <li></li>
+      <menu class="company_popup_menu">
+        <li class="company_popup__all">History</li>
+        <li class="company_popup__all">Our Team</li>
+        <li class="company_popup__all">Blog</li>
       </menu>
     </section>
   </div>
@@ -110,7 +114,7 @@ export default {};
 
 .menu {
   color: hsl(0, 0%, 41%);
-  font-weight: 500;
+  font-weight: 700;
   margin-left: 22px;
   cursor: pointer;
 }
@@ -166,6 +170,7 @@ export default {};
   border-radius: 10px;
   box-shadow: 0px 10px 14px 5px #e8e8e8;
   background-color: #ffffff;
+  display: none;
 }
 
 .wrapper__container__features:hover {
@@ -180,8 +185,13 @@ export default {};
   margin: 16px 14px 0 20px;
 }
 
+.features__todo_list__text {
+  color: hsl(0, 0%, 41%);
+}
+
 .features__todo_list__text:hover {
   cursor: pointer;
+  color: black;
 }
 
 .features__todo_list__text__ref {
@@ -194,15 +204,30 @@ export default {};
 
 .container__company {
   width: 120px;
-  height: 150px;
+  height: 142px;
   margin-left: 32px;
   font-weight: 500;
   border-radius: 10px;
   box-shadow: 0px 10px 14px 5px #e8e8e8;
   background-color: #ffffff;
+  display: none;
 }
 
 .container__company:hover {
   transform: translateY(-5px);
+}
+
+.company_popup_menu {
+  list-style-type: none;
+}
+
+.company_popup__all {
+  margin: 20px;
+  color: hsl(0, 0%, 41%);
+  cursor: pointer;
+}
+
+.company_popup__all:hover {
+  color: black;
 }
 </style>
