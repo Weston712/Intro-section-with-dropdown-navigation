@@ -1,7 +1,14 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      mobileMenuPopup: false,
+      featuresPopupDesctop: false,
+      companyPopupDesctop: false,
+      // mobile virsion
+      featuresPopupMobile: false,
+      companyPopupMobile: false,
+    };
   },
 };
 </script>
@@ -16,31 +23,136 @@ export default {
           /></svg
       ></span>
       <menu class="wrapper__menu">
-        <li class="menu">
+        <li @click="featuresPopupDesctop = !featuresPopupDesctop" class="menu">
           Features
-          <span class="menu__open"
+          <span v-if="!featuresPopupDesctop" class="menu__open"
             ><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
               <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" /></svg
           ></span>
+          <svg v-else width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 5 4-4 4 4" />
+          </svg>
         </li>
-        <li class="menu">
+        <li @click="companyPopupDesctop = !companyPopupDesctop" class="menu">
           Company
-          <span class="menu__open"
+          <span v-if="!companyPopupDesctop" class="menu__open"
             ><svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
               <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" /></svg
           ></span>
+          <svg v-else width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 5 4-4 4 4" />
+          </svg>
         </li>
         <li class="menu">Careers</li>
         <li class="menu">About</li>
       </menu>
     </div>
+
+    <div class="wrapper__btn__phone__menu">
+      <svg
+        @click="mobileMenuPopup = !mobileMenuPopup"
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+      >
+        <path
+          fill="none"
+          stroke="black"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 8h22M5 16h22M5 24h22"
+        />
+      </svg>
+      <div v-show="mobileMenuPopup" class="wrapper__popup__menu">
+        <div class="wrapper__container__menu__phone">
+          <span @click="mobileMenuPopup = !mobileMenuPopup" class="container__phone__close">&#x2715;</span>
+          <menu class="wrapper__menu__phone">
+            <li>
+              <span @click="featuresPopupMobile = !featuresPopupMobile" class="open__menu__phone__features"
+                >Features
+                <svg v-if="!featuresPopupMobile" width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
+                </svg>
+                <svg v-else width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 5 4-4 4 4" />
+                </svg>
+              </span>
+              <ul v-show="featuresPopupMobile" class="menu__phone__features">
+                <li class="menu__phone__all">
+                  <svg width="14" height="16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M14 3v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h1V1a1 1 0 1 1 2 0v1h2V1a1 1 0 1 1 2 0v1h2V1a1 1 0 0 1 2 0v1h1a1 1 0 0 1 1 1Zm-2 3H2v1h10V6Zm0 3H2v1h10V9Zm0 3H2v1h10v-1Z"
+                      fill="#726CEE"
+                    />
+                  </svg>
+                  <span>Todo List</span>
+                </li>
+                <li class="menu__phone__all">
+                  <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12.667 8.667h-4v4h4v-4ZM11.334 0v1.333H4.667V0h-2v1.333h-1C.75 1.333 0 2.083 0 3v11.333C0 15.25.75 16 1.667 16h12.667C15.25 16 16 15.25 16 14.333V3c0-.917-.75-1.667-1.666-1.667h-1V0h-2Zm3 14.333H1.667V5.5h12.667v8.833Z"
+                      fill="#4BB1DA"
+                    />
+                  </svg>
+                  <span>Calendar</span>
+                </li>
+                <li class="menu__phone__all">
+                  <svg width="13" height="17" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6.408 13.916c-3.313 0-6-1.343-6-3 0-.612.371-1.18 1-1.654V7.916a5 5 0 0 1 3.041-4.6 2 2 0 0 1 3.507-1.664 2 2 0 0 1 .411 1.664 5.002 5.002 0 0 1 3.041 4.6v1.346c.629.474 1 1.042 1 1.654 0 1.657-2.687 3-6 3Zm0 1c.694 0 1.352-.066 1.984-.16.004.054.016.105.016.16a2 2 0 0 1-4 0c0-.055.012-.106.016-.16.633.094 1.29.16 1.984.16Z"
+                      fill="#EDD556"
+                    />
+                  </svg>
+                  <span>Reminders</span>
+                </li>
+                <li class="menu__phone__all">
+                  <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0Zm0 2.133a5.867 5.867 0 1 0 0 11.734A5.867 5.867 0 0 0 8 2.133ZM8 3.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm-.533 2.667a.533.533 0 0 0-.534.533v2.133c0 .295.24.534.534.534h3.2a.533.533 0 0 0 0-1.067H8V6.4a.533.533 0 0 0-.533-.533Z"
+                      fill="#8E4CB6"
+                    />
+                  </svg>
+                  <span>Planning</span>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <span @click="companyPopupMobile = !companyPopupMobile" class="open__menu__phone__company"
+                >Company
+                <svg v-if="!companyPopupMobile" width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
+                </svg>
+                <svg v-else width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 5 4-4 4 4" />
+                </svg>
+              </span>
+              <ul v-show="companyPopupMobile" class="menu__phone__company">
+                <li class="menu__phone__all">History</li>
+                <li class="menu__phone__all">Our Team</li>
+                <li class="menu__phone__all">Blog</li>
+              </ul>
+            </li>
+            <li class="menu__phone__careers">Careers</li>
+            <li class="menu__phone__about">About</li>
+          </menu>
+          <div class="wrapper__btn__menu__phone">
+            <button class="btn__login">Login</button>
+            <button class="btn__register">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="wrapper__btn__authorization">
       <button class="btn__login">Login</button>
       <button class="btn__register">Register</button>
     </div>
   </div>
+
   <div class="wrapper__two__popup_menu">
-    <section class="wrapper__container__features">
+    <section v-show="featuresPopupDesctop" class="wrapper__container__features">
       <div class="container__features">
         <menu class="features_popup_menu">
           <li class="features__todo_list">
@@ -82,7 +194,7 @@ export default {
         </menu>
       </div>
     </section>
-    <section class="container__company">
+    <section v-show="companyPopupDesctop" class="container__company">
       <menu class="company_popup_menu">
         <li class="company_popup__all">History</li>
         <li class="company_popup__all">Our Team</li>
@@ -123,7 +235,8 @@ export default {
   color: black;
 }
 
-.menu__open {
+.wrapper__btn__phone__menu svg {
+  display: none;
 }
 
 .wrapper__btn__authorization {
@@ -164,13 +277,13 @@ export default {
 }
 
 .wrapper__container__features {
+  position: absolute;
   width: 160px;
   height: 180px;
   margin-left: 82px;
   border-radius: 10px;
   box-shadow: 0px 10px 14px 5px #e8e8e8;
   background-color: #ffffff;
-  display: none;
 }
 
 .wrapper__container__features:hover {
@@ -203,14 +316,14 @@ export default {
 }
 
 .container__company {
+  position: absolute;
   width: 120px;
   height: 142px;
-  margin-left: 32px;
+  margin-left: 272px;
   font-weight: 500;
   border-radius: 10px;
   box-shadow: 0px 10px 14px 5px #e8e8e8;
   background-color: #ffffff;
-  display: none;
 }
 
 .container__company:hover {
@@ -229,5 +342,111 @@ export default {
 
 .company_popup__all:hover {
   color: black;
+}
+
+@media (max-width: 850px) {
+  .wrapper__menu {
+    display: none;
+  }
+
+  .wrapper__btn__authorization {
+    display: none;
+  }
+
+  .wrapper__btn__phone__menu svg {
+    display: block;
+    margin-right: 16px;
+  }
+
+  .wrapper__popup__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(110, 107, 107, 0.5);
+  }
+
+  .wrapper__container__menu__phone {
+    width: 60%;
+    height: 100%;
+    margin-left: auto;
+    overflow: auto;
+    background-color: white;
+  }
+
+  .container__phone__close {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 23px;
+    padding-top: 18px;
+    margin-right: 22px;
+  }
+
+  .wrapper__menu__phone {
+    list-style-type: none;
+    margin-top: 32px;
+    margin-left: 26px;
+  }
+
+  .wrapper__menu__phone svg {
+    margin-left: 8px;
+  }
+
+  .menu__phone__all {
+    display: flex;
+    margin-top: 12px;
+    margin-left: 10px;
+  }
+
+  .menu__phone__careers {
+    margin-top: 12px;
+  }
+
+  .menu__phone__about {
+    margin-top: 12px;
+  }
+
+  .wrapper__btn__menu__phone {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrapper__btn__menu__phone {
+    margin-top: 26px;
+  }
+
+  .btn__register {
+    width: 172px;
+    margin: auto;
+    margin-top: 14px;
+    margin-bottom: 32px;
+  }
+
+  .open__menu__phone__features {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .menu__phone__features {
+    list-style-type: none;
+    padding-top: 8px;
+    margin-bottom: 14px;
+  }
+
+  .open__menu__phone__company {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 12px;
+  }
+
+  .menu__phone__company {
+    list-style-type: none;
+    margin-left: 18px;
+    padding-top: 8px;
+    margin-bottom: 14px;
+  }
 }
 </style>
